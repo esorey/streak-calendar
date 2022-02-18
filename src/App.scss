@@ -1,0 +1,87 @@
+@mixin col-1-1 {
+  width: 100%;
+}
+
+@mixin col-1-3 {
+  width: 33.3333333333%;
+}
+
+@mixin col-2-3 {
+  width: 66.66666666666%;
+}
+
+@mixin col-1-7 {
+  width: 14.2857%;
+}
+
+@mixin grid {
+  margin: 0;
+  padding: 0;
+
+&::after {
+   content: "";
+   display: table;
+   clear: both;
+ }
+
+& > * {
+    padding: .25rem;
+    float: left;
+  }
+}
+
+// App
+.app {
+  width: 80%;
+  height: 800px;
+  @include grid;
+}
+
+
+// Navbar
+.navbar {
+  @include col-1-1;
+  height: 10%;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+.navbar > h1 {
+  @include col-2-3;
+}
+
+.navbar > div {
+  @include col-1-3;
+}
+
+.navbar button {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+}
+
+// DateGrid
+.dategrid {
+  width: 100%;
+}
+
+.dategrid_container {
+  @include col-1-1;
+  height: 90%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+// Individual date blocks
+.dategrid_container > div {
+  background-color: antiquewhite;
+  border: 2px solid goldenrod;
+}
+
+.dategrid_cols {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: orangered;
+  color: white;
+  text-align: center;
+}

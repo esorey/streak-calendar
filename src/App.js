@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Navbar from './components/Navbar';
+import DateGrid from './components/DateGrid';
+import DateBox from './components/DateBox'
+import { useState } from 'react'
+import { getInitialState } from './lib/time'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [ state, updateState ] = useState(getInitialState())
+    const boxes = state.dateArray.map(x => (
+        <DateBox value={ (x >= 0) ? (x + 1) : x }/>))
+
+    return (
+        <div className='app'>
+            <Navbar month={ state.month } year={ state.year } state={ state } updateState={ updateState }/>
+            <DateGrid>
+                { boxes }
+            </DateGrid>
+        </div>
+    );
 }
 
 export default App;
