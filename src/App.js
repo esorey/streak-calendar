@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import DateGrid from './components/DateGrid';
 import DateBox from './components/DateBox'
 import { useState } from 'react'
-import { getInitialState } from './lib/time'
+import { getInitialState } from './lib/utils'
 
 function App() {
     const [ state, updateState ] = useState(getInitialState())

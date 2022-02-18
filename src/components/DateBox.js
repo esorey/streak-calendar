@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 const dateBoxStyle = {
     display: 'flex',
     flexDirection: 'column',
+    borderTop: 'none',
+    borderLeft: 'none',
 }
 
 const headerStyle = {
@@ -29,6 +31,7 @@ const bodyStyle = {
     fontSize: '48px',
     minHeight: '124px',
     userSelect: 'none',
+    color: 'orangered',
 }
 
 export default function DateBox(props) {

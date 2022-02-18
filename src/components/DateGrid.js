@@ -1,5 +1,5 @@
 import React from 'react';
-import { Days } from '../lib/time'
+import { Days } from '../lib/utils'
 
 const DateGrid = ({ children }) => {
     const days = Days.map(x => (<div className='dategrid_col'>{ x }</div>))

@@ -18,13 +18,13 @@
   margin: 0;
   padding: 0;
 
-&::after {
-   content: "";
-   display: table;
-   clear: both;
- }
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
-& > * {
+  & > * {
     padding: .25rem;
     float: left;
   }
@@ -44,6 +44,8 @@
   height: 10%;
   display: grid;
   grid-template-columns: 4fr 1fr;
+  background-color: orange;
+  padding: 0;
 }
 
 .navbar > h1 {
@@ -63,6 +65,7 @@
 // DateGrid
 .dategrid {
   width: 100%;
+  padding: 0;
 }
 
 .dategrid_container {

@@ -1,11 +1,17 @@
 import React from 'react';
-import { getNextYearMonthState, getPrevYearMonthState } from '../lib/time'
+import { getNextYearMonthState, getPrevYearMonthState } from '../lib/utils'
+
+const titleStyle = {
+    textAlign: 'center',
+    width: '100%',
+    color: 'white',
+}
 
 
 const Navbar = ({ month, year, state, updateState }) => {
     return (
         <div className='navbar'>
-            <div>
+            <div style={ titleStyle }>
                 <h1>{ `${ month } ${ year }` }</h1>
             </div>
             <div>
