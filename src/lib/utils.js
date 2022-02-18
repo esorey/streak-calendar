@@ -52,13 +52,14 @@ const getPrevYearMonth = ({ month, year }) => {
 }
 
 const getDateArray = ({ month, year }) => {
-    const dayCount = getDaysInMonth({ month, year })
+    const daysInMonth = getDaysInMonth({ month, year })
     // Sunday = 0, Monday = 1, etc.
     const dayOfWeekIdx = new Date(year, Months.indexOf(month), 1).getDay()
-    // We want 42 dateboxes total
-    const endPad = 42 - dayCount - dayOfWeekIdx
+    // Create a full grid of boxes big enough to fit this month
+    const totalBoxes = 7 * Math.ceil((daysInMonth + dayOfWeekIdx) / 7)
+    const endPad = totalBoxes - daysInMonth - dayOfWeekIdx
     return Array(dayOfWeekIdx).fill(-1).concat(
-        [ ...Array(dayCount).keys() ].concat(
+        [ ...Array(daysInMonth).keys() ].concat(
             Array(endPad).fill(-1),
         ),
     )

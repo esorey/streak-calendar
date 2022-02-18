@@ -46,7 +46,7 @@ export default function DateBox(props) {
                 }
             </div>
             <div className='datebox-body' style={ bodyStyle }
-                 onClick={ () => setMarked(!marked) }
+                 onClick={ () => (props.value > 0) ? setMarked(!marked) : null }
             >
                 { marked ? 'X' : '' }
             </div>
