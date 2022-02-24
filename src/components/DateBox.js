@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const dateBoxStyle = {
     display: 'flex',
@@ -34,19 +34,27 @@ const bodyStyle = {
     color: 'orangered',
 }
 
-export default function DateBox(props) {
+export default function DateBox({ id, value }) {
     const [ marked, setMarked ] = useState(false)
+    useEffect(() => {
+        const data = localStorage.getItem(id)
+        if (data)
+            setMarked(JSON.parse(data))
+    }, [ id ])
+    useEffect(() => {
+        localStorage.setItem(id, JSON.stringify(marked))
+    }, [ id, marked ])
     return (
         <div className='datebox' style={ dateBoxStyle }>
             <div className='datebox-header' style={ headerStyle }>
                 {
-                    (props.value > 0) ?
-                        (<button style={ buttonStyle }>{ props.value }</button>) :
+                    (value > 0) ?
+                        (<button style={ buttonStyle }>{ value }</button>) :
                         null
                 }
             </div>
             <div className='datebox-body' style={ bodyStyle }
-                 onClick={ () => (props.value > 0) ? setMarked(!marked) : null }
+                 onClick={ () => (value > 0) ? setMarked(!marked) : null }
             >
                 { marked ? 'X' : '' }
             </div>

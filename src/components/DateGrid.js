@@ -2,7 +2,7 @@ import React from 'react';
 import { Days } from '../lib/utils'
 
 const DateGrid = ({ children }) => {
-    const days = Days.map(x => (<div className='dategrid_col'>{ x }</div>))
+    const days = Days.map((x, idx) => (<div className='dategrid_col' key={ idx }>{ x }</div>))
     return (
         <div className='dategrid'>
             <div className='dategrid_cols'>
