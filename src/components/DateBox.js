@@ -13,6 +13,7 @@ const headerStyle = {
     justifyContent: 'right',
     height: '20%',
     backgroundColor: 'orange',
+    userSelect: 'none',
 }
 
 const buttonStyle = {
